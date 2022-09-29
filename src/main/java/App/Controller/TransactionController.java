@@ -1,7 +1,7 @@
 package App.Controller;
 
-import App.Model.Transaction;
-import App.Service.TransactionService;
+import App.Model.Transactions;
+import App.Service.TransactionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,20 +10,20 @@ import java.util.List;
 @RestController
 @CrossOrigin
 public class TransactionController {
-    TransactionService ts;
+    TransactionsService ts;
 
     @Autowired
-    public TransactionController(TransactionService ts) {
+    public TransactionController(TransactionsService ts) {
         this.ts = ts;
     }
 
     @GetMapping("/{user}/transactions")
-    public List<Transaction> getAllTransactionsByUser() {
+    public List<Transactions> getAllTransactionsByUser() {
         return null;
     }
 
     @PostMapping("/{user}/transactions")
-    public Transaction addTransaction(@RequestBody Transaction t) {
+    public Transactions addTransaction(@RequestBody Transactions t) {
         return ts.addTransaction(t);
     }
 

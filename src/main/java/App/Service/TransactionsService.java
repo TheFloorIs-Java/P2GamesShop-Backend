@@ -1,24 +1,24 @@
 package App.Service;
 
-import App.Model.Transaction;
-import App.Repository.TransactionRepository;
+import App.Model.Transactions;
+import App.Repository.TransactionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TransactionService {
-    TransactionRepository tr;
+public class TransactionsService {
+    TransactionsRepository tr;
 
     @Autowired
-    public TransactionService(TransactionRepository tr) {
+    public TransactionsService(TransactionsRepository tr) {
         this.tr = tr;
     }
 
-    public Transaction addTransaction(Transaction t) {
+    public Transactions addTransaction(Transactions t) {
         return tr.save(t);
     }
 
-    public Transaction getTransactionFromUserById(int id) {
+    public Transactions getTransactionFromUserById(int id) {
         // Get User
         // User u = UserRepository.findById(id).get();
 
