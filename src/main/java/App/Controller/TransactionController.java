@@ -29,4 +29,6 @@ public class TransactionController {
 
     // Transaction for a specific date
 
+    @GetMapping("")
+    public String defaultResponse() {return "Response from backend.";}
 }
