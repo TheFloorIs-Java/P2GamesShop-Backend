@@ -1,2 +1,4 @@
-package App;public class Application {
+package App;
+
+public class Application {
 }
