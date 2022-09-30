@@ -17,6 +17,13 @@ public class TransactionController {
         this.ts = ts;
     }
 
+    // Test endpoint
+    @GetMapping("/transactions")
+    public List<Transactions> getAllTransactions() {
+        return ts.getAllTransactions();
+    }
+
+
     @GetMapping("/{user}/transactions")
     public List<Transactions> getAllTransactionsByUser() {
         return null;
@@ -27,6 +34,10 @@ public class TransactionController {
         return ts.addTransaction(t);
     }
 
-    // Transaction for a specific date
-
+    // Specific transaction from a user by id
+    // TODO: Determine whether to use user_id or username
+    @GetMapping("/{user}/{transaction_id}")
+    public Transactions getTransactionFromUserById(@PathVariable String user, @PathVariable int transaction_id) {
+        return ts.getTransactionFromUserById(user, transaction_id);
+    }
 }

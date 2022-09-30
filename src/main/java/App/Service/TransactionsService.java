@@ -4,6 +4,10 @@ import App.Model.Transactions;
 import App.Repository.TransactionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Component
 public class TransactionsService {
@@ -14,15 +18,22 @@ public class TransactionsService {
         this.tr = tr;
     }
 
+    // Method for testing endpoint
+    public List<Transactions> getAllTransactions() {
+        return tr.findAll();
+    }
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public Transactions addTransaction(Transactions t) {
         return tr.save(t);
     }
 
-    public Transactions getTransactionFromUserById(int id) {
+    // TODO: Determine whether to use user_id or username
+    public Transactions getTransactionFromUserById(String user, int id) {
         // Get User
         // User u = UserRepository.findById(id).get();
 
-        // Transaction t = getTransactionFromUserById();
+        // Transactions t = ts.getTransactionFromUserById();
         return null;
     }
 }
