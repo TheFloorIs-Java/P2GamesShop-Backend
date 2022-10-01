@@ -17,11 +17,13 @@ public class TransactionController {
         this.ts = ts;
     }
 
+    // Username/user_id
     @GetMapping("/{user}/transactions")
     public List<Transactions> getAllTransactionsByUser() {
         return null;
     }
 
+    // Username/user_id
     @PostMapping("/{user}/transactions")
     public Transactions addTransaction(@RequestBody Transactions t) {
         return ts.addTransaction(t);
