@@ -1,7 +1,9 @@
 package App.Service;
 
 import App.Model.Transactions;
+import App.Model.Users;
 import App.Repository.TransactionsRepository;
+import App.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
@@ -12,10 +14,12 @@ import java.util.List;
 @Component
 public class TransactionsService {
     TransactionsRepository tr;
+    UserRepository ur;
 
     @Autowired
-    public TransactionsService(TransactionsRepository tr) {
+    public TransactionsService(TransactionsRepository tr, UserRepository ur) {
         this.tr = tr;
+        this.ur = ur;
     }
 
     // Method for testing endpoint
@@ -31,9 +35,9 @@ public class TransactionsService {
     // TODO: Determine whether to use user_id or username
     public Transactions getTransactionFromUserById(String user, int id) {
         // Get User
-        // User u = UserRepository.findById(id).get();
+        Users u = ur.findById(id).get();
 
-        // Transactions t = ts.getTransactionFromUserById();
-        return null;
+        Transactions t = tr.getTransactionFromUserById(u.getId());
+        return t;
     }
 }
