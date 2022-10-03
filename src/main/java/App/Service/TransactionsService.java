@@ -33,11 +33,11 @@ public class TransactionsService {
     }
 
     // TODO: Determine whether to use user_id or username
-    public Transactions getTransactionFromUserById(String user, int id) {
+    public Transactions getTransactionFromUserById(int user_id, int transaction_id) {
         // Get User
-        Users u = ur.findById(id).get();
+        Users u = ur.findById(user_id).get();
 
-        Transactions t = tr.getTransactionFromUserById(u.getId());
+        Transactions t = tr.getTransactionFromUserById(u.getId(), transaction_id);
         return t;
     }
 }

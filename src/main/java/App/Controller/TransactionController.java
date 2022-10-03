@@ -37,9 +37,9 @@ public class TransactionController {
 
     // Specific transaction from a user by id
     // TODO: Determine whether to use user_id or username
-    @GetMapping("/{user}/{transaction_id}")
-    public Transactions getTransactionFromUserById(@PathVariable String user, @PathVariable int transaction_id) {
-        return ts.getTransactionFromUserById(user, transaction_id);
+    @GetMapping("/{user_id}/{transaction_id}")
+    public Transactions getTransactionFromUserById(@PathVariable int user_id, @PathVariable int transaction_id) {
+        return ts.getTransactionFromUserById(user_id, transaction_id);
     }
 
     // Transaction for a specific date
