@@ -5,6 +5,7 @@ import App.Service.TransactionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -23,14 +24,14 @@ public class TransactionController {
         return ts.getAllTransactions();
     }
 
-    // Username/user_id
-    @GetMapping("/{user}/transactions")
+    // Get all transactions from a user
+    @GetMapping("/{user_id}/transactions")
     public List<Transactions> getAllTransactionsByUser() {
-        return null;
+        return ts.getAllTransactions();
     }
 
-    // Username/user_id
-    @PostMapping("/{user}/transactions")
+    // Add a transaction to a user
+    @PostMapping("/{user_id}/transactions")
     public Transactions addTransaction(@RequestBody Transactions t) {
         return ts.addTransaction(t);
     }
@@ -43,6 +44,10 @@ public class TransactionController {
     }
 
     // Transaction for a specific date
+    @GetMapping("/{user_id}/transactions/{date}")
+    public List<Transactions> getTransactionsFromUserByIdByDate(@PathVariable int user_id, @PathVariable LocalDate date) {
+        return ts.getTransactionsFromUserByIdByDate(user_id, date);
+    }
 
     @GetMapping("")
     public String defaultResponse() {return "Response from backend.";}

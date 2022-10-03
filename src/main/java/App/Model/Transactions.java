@@ -3,6 +3,7 @@ package App.Model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -18,6 +19,9 @@ public class Transactions {
 
     @Column
     int user_id;            // Foreign key
+
+    @Column
+    LocalDate date;
 
     @Column
     double total_price;

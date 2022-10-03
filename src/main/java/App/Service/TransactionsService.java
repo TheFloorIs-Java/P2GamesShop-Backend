@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Component
@@ -32,6 +33,10 @@ public class TransactionsService {
         return tr.save(t);
     }
 
+    public List<Transactions> getAllTransactionsFromUserById(int user_id) {
+        return tr.getAllTransactionsByUserId();
+    }
+
     // TODO: Determine whether to use user_id or username
     public Transactions getTransactionFromUserById(int user_id, int transaction_id) {
         // Get User
@@ -39,5 +44,10 @@ public class TransactionsService {
 
         Transactions t = tr.getTransactionFromUserById(u.getId(), transaction_id);
         return t;
+    }
+
+    // Get all transactions from a user on a specific date
+    public List<Transactions> getTransactionsFromUserByIdByDate(int user_id, LocalDate date) {
+        return tr.getTransactionsFromUserByIdByDate(user_id, date);
     }
 }
