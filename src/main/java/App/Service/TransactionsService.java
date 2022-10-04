@@ -34,7 +34,7 @@ public class TransactionsService {
     }
 
     public List<Transactions> getAllTransactionsFromUserById(int user_id) {
-        return tr.getAllTransactionsByUserId();
+        return tr.getAllTransactionsByUserId(user_id);
     }
 
     // TODO: Determine whether to use user_id or username

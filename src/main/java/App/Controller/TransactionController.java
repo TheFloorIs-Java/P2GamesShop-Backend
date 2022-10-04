@@ -18,11 +18,18 @@ public class TransactionController {
         this.ts = ts;
     }
 
-    // Test endpoint
+    // Test endpoints ----------------------------------------------------------------
     @GetMapping("/transactions")
     public List<Transactions> getAllTransactions() {
         return ts.getAllTransactions();
     }
+
+    @PostMapping("/transactions")
+    public Transactions testAddTransaction(@RequestBody Transactions t) {
+        return ts.addTransaction(t);
+    }
+
+    // -------------------------------------------------------------------------------
 
     // Get all transactions from a user
     @GetMapping("/{user_id}/transactions")

@@ -12,7 +12,6 @@ import java.util.List;
 
 @Component
 public class UserService {
-
     UserRepository ur;
     @Autowired
     public UserService(UserRepository ur) {
