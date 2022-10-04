@@ -15,11 +15,14 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //automatically generate user id
     @Column
-    int id;
+    private int id;
     @Column
-    String username;
+    private String username;
     @Column
-    String password;
+    private String password;
+    //@Column
+    //private boolean userRole;
+
 
     //public boolean admin;
 }
