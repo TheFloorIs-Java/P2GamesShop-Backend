@@ -31,4 +31,8 @@ public class UserService {
     public Users addUser(Users p){
         return ur.save(p);
     }
+
+    public void deleteUserById(int id) {
+        ur.deleteById(id);
+    }
 }
