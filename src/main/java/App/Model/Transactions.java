@@ -28,9 +28,6 @@ public class Transactions {
 
     LocalDate date;
 
-    // TODO: Test in Postman
-    @OneToMany(mappedBy = "transactions")
-    @JsonManagedReference
     @Column
     List<Product> products;
 
