@@ -1,8 +1,10 @@
 package App.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -22,9 +24,9 @@ public class Transactions {
     @Column
     double total_price;
 
-//    TODO: Merge with rest of code and test
-//    @OneToMany(mappedBy = "")
-//    @JsonManagedReference
-//    @Column
-//    List<Product> products;
+    // TODO: Test in Postman
+    @OneToMany(mappedBy = "transactions")
+    @JsonManagedReference
+    @Column
+    List<Product> products;
 }
