@@ -5,6 +5,7 @@ import App.Service.TransactionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -28,6 +29,10 @@ public class TransactionController {
     }
 
     // Transaction for a specific date
+    @GetMapping("/transactions/{date}")
+    public List<Transactions> getTransactionsByDate(@PathVariable LocalDate date) {
+        return ts.getTransactionsByDate(date);
+    }
 
     @GetMapping("")
     public String defaultResponse() {return "Response from backend.";}
