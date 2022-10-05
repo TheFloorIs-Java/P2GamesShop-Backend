@@ -9,6 +9,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface TransactionsRepository extends JpaRepository<Transactions, Integer> {
+    // For testing with Postman - gets all transactions
+    @Query("from Transactions")
+    public List<Transactions> getAllTransactions();
+
     // All transaction from a user
     @Query("from Transactions where user_id = :user_id")
     public List<Transactions> getAllTransactionsByUserId(@Param("user_id")int user_id);
