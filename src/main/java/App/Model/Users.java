@@ -20,8 +20,11 @@ public class Users {
     String username;
     @Column
     String password;
+<<<<<<< HEAD
     @Column
     private int userRole = 0;
+=======
+>>>>>>> origin/transactions-backend-2
 
     //public boolean admin;
 }
