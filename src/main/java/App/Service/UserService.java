@@ -12,10 +12,7 @@ import java.util.List;
 
 @Component
 public class UserService {
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/transactions-backend-2
     UserRepository ur;
     @Autowired
     public UserService(UserRepository ur) {
@@ -34,11 +31,8 @@ public class UserService {
     public Users addUser(Users p){
         return ur.save(p);
     }
-<<<<<<< HEAD
 
     public void deleteUserById(int id) {
         ur.deleteById(id);
     }
-=======
->>>>>>> origin/transactions-backend-2
 }

@@ -3,10 +3,9 @@ package App.Model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Data
-// @AllArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
@@ -21,9 +20,6 @@ public class Transactions {
     int user_id;            // Foreign key
 
     @Column
-    LocalDate date;
-
-    @Column
     double total_price;
 
 //    TODO: Merge with rest of code and test
@@ -31,11 +27,4 @@ public class Transactions {
 //    @JsonManagedReference
 //    @Column
 //    List<Product> products;
-
-    public Transactions(int transaction_id, int user_id, LocalDate date, double total_price) {
-        this.transaction_id = transaction_id;
-        this.user_id = user_id;
-        this.date = date;
-        this.total_price = total_price;
-    }
 }
