@@ -5,6 +5,9 @@ import App.Repository.TransactionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @Component
 public class TransactionsService {
     TransactionsRepository tr;
@@ -18,21 +21,12 @@ public class TransactionsService {
         return tr.save(t);
     }
 
-    public Transactions getTransactionFromUserById(int id) {
-        // Get User
-        // User u = UserRepository.findById(id).get();
-
-<<<<<<< HEAD
-        Transactions t = tr.getTransactionFromUserById(u.getId(), transaction_id);
-        return t;
+    public Transactions getTransactionFromUserById(int user_id, int transaction_id) {
+        return tr.getTransactionFromUserById(user_id, transaction_id);
     }
 
     // Get all transactions from a user on a specific date
     public List<Transactions> getTransactionsByDate(LocalDate date) {
         return tr.getTransactionsByDate(date);
-=======
-        // Transaction t = getTransactionFromUserById();
-        return null;
->>>>>>> f2431097cbef918d9141b68528c5d83e542baa4e
     }
 }
