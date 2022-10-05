@@ -18,22 +18,31 @@ public class TransactionController {
         this.ts = ts;
     }
 
-    @GetMapping("/{user}/transactions")
-    public List<Transactions> getAllTransactionsByUser() {
-        return null;
+    // Get all Transactions by a specific user
+    @GetMapping("/{user_id}/transactions")
+    public List<Transactions> getAllTransactionsByUserId(@PathVariable int user_id) {
+        return ts.getAllTransactionsFromUserById(user_id);
     }
 
-    @PostMapping("/{user}/transactions")
+    // Add a transaction
+    @PostMapping("/{user_id}/transactions")
     public Transactions addTransaction(@RequestBody Transactions t) {
         return ts.addTransaction(t);
     }
 
-    // Transaction for a specific date
+    // Get all Transactions for a specific date
     @GetMapping("/transactions/{date}")
     public List<Transactions> getTransactionsByDate(@PathVariable LocalDate date) {
         return ts.getTransactionsByDate(date);
     }
 
+    // Testing endpoints
     @GetMapping("")
     public String defaultResponse() {return "Response from backend.";}
+
+    public List<Transactions> getAllTransactions() {
+        return ts.getAllTransactions();
+    }
+
+
 }
