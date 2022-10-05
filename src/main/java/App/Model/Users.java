@@ -20,6 +20,8 @@ public class Users {
     String username;
     @Column
     String password;
+    @Column
+    private int userRole = 0;
 
     //public boolean admin;
 }

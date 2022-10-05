@@ -12,6 +12,7 @@ import java.util.List;
 
 @Component
 public class UserService {
+
     UserRepository ur;
     @Autowired
     public UserService(UserRepository ur) {
@@ -29,5 +30,9 @@ public class UserService {
 
     public Users addUser(Users p){
         return ur.save(p);
+    }
+
+    public void deleteUserById(int id) {
+        ur.deleteById(id);
     }
 }

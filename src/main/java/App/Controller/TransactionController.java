@@ -5,7 +5,6 @@ import App.Service.TransactionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -18,43 +17,24 @@ public class TransactionController {
         this.ts = ts;
     }
 
-    // Test endpoints ----------------------------------------------------------------
-    @GetMapping("/transactions")
-    public List<Transactions> getAllTransactions() {
-        return ts.getAllTransactions();
-    }
-
-    @PostMapping("/transactions")
-    public Transactions testAddTransaction(@RequestBody Transactions t) {
-        return ts.addTransaction(t);
-    }
-
-    // -------------------------------------------------------------------------------
-
-    // Get all transactions from a user
-    @GetMapping("/{user_id}/transactions")
+    @GetMapping("/{user}/transactions")
     public List<Transactions> getAllTransactionsByUser() {
-        return ts.getAllTransactions();
+        return null;
     }
 
-    // Add a transaction to a user
-    @PostMapping("/{user_id}/transactions")
+    @PostMapping("/{user}/transactions")
     public Transactions addTransaction(@RequestBody Transactions t) {
         return ts.addTransaction(t);
     }
 
-    // Specific transaction from a user by id
-    // TODO: Determine whether to use user_id or username
-    @GetMapping("/{user_id}/{transaction_id}")
-    public Transactions getTransactionFromUserById(@PathVariable int user_id, @PathVariable int transaction_id) {
-        return ts.getTransactionFromUserById(user_id, transaction_id);
-    }
-
     // Transaction for a specific date
+<<<<<<< HEAD
     @GetMapping("/transactions/{date}")
     public List<Transactions> getTransactionsByDate(@PathVariable LocalDate date) {
         return ts.getTransactionsByDate(date);
     }
+=======
+>>>>>>> f2431097cbef918d9141b68528c5d83e542baa4e
 
     @GetMapping("")
     public String defaultResponse() {return "Response from backend.";}

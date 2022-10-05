@@ -10,6 +10,5 @@
         <module name="P2GamesShop-Backend.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="14" />
   </component>
 </project>

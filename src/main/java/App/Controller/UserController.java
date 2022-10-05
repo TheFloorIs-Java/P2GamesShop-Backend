@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class UserController {
 
     UserService us;
@@ -17,10 +18,6 @@ public class UserController {
         this.us = ps;
     }
 
-  /*  @GetMapping("/")
-    public String sayHello(){
-        return "User page currently in progress";
-    } */
 
 
     @GetMapping("users")
@@ -37,5 +34,11 @@ public class UserController {
     @PostMapping("users")
     public void addUser(@RequestBody Users p) {
         us.addUser(p);
+    }
+
+    @DeleteMapping("/users/delete/{id}")
+    public void deleteUserById(@PathVariable("id") int id){
+        us.deleteUserById(id);
+
     }
 }
