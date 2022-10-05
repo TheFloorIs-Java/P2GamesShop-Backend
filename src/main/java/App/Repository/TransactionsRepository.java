@@ -19,6 +19,6 @@ public interface TransactionsRepository extends JpaRepository<Transactions, Inte
     @Query("from Transactions where user_id = :user_id and transaction_id = :transaction_id")
     public Transactions getTransactionFromUserById(@Param("user_id")int user_id, @Param("transaction_id")int transaction_id);
 
-    @Query("from Transactions where user_id = :user_id and date = :date")
-    public List<Transactions> getTransactionsFromUserByIdByDate(@Param("user_id")int user_id, @Param("date")LocalDate date);
+    @Query("from Transactions where date = :date")
+    public List<Transactions> getTransactionsByDate(@Param("date")LocalDate date);
 }

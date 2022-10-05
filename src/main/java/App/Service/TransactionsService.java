@@ -47,7 +47,7 @@ public class TransactionsService {
     }
 
     // Get all transactions from a user on a specific date
-    public List<Transactions> getTransactionsFromUserByIdByDate(int user_id, LocalDate date) {
-        return tr.getTransactionsFromUserByIdByDate(user_id, date);
+    public List<Transactions> getTransactionsByDate(LocalDate date) {
+        return tr.getTransactionsByDate(date);
     }
 }

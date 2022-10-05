@@ -51,9 +51,9 @@ public class TransactionController {
     }
 
     // Transaction for a specific date
-    @GetMapping("/{user_id}/transactions/{date}")
-    public List<Transactions> getTransactionsFromUserByIdByDate(@PathVariable int user_id, @PathVariable LocalDate date) {
-        return ts.getTransactionsFromUserByIdByDate(user_id, date);
+    @GetMapping("/transactions/{date}")
+    public List<Transactions> getTransactionsByDate(@PathVariable LocalDate date) {
+        return ts.getTransactionsByDate(date);
     }
 
     @GetMapping("")
