@@ -4,10 +4,12 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
+// @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
@@ -24,9 +26,29 @@ public class Transactions {
     @Column
     double total_price;
 
+    LocalDate date;
+
     // TODO: Test in Postman
     @OneToMany(mappedBy = "transactions")
     @JsonManagedReference
     @Column
     List<Product> products;
+
+    // Constructor that instantiates a new ArrayList() of products
+    public Transactions(int transaction_id, int user_id, double total_price, LocalDate date) {
+        this.transaction_id = transaction_id;
+        this.user_id = user_id;
+        this.total_price = total_price;
+        this.date = date;
+        this.products = new ArrayList<>();
+    }
+
+    // Constructor that sets the current list of products in transactions to the given list
+    public Transactions(int transaction_id, int user_id, double total_price, LocalDate date, List<Product> products) {
+        this.transaction_id = transaction_id;
+        this.user_id = user_id;
+        this.total_price = total_price;
+        this.date = date;
+        this.products = products;
+    }
 }
