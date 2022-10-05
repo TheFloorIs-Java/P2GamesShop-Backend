@@ -26,6 +26,7 @@ public class Transactions {
     @Column
     double total_price;
 
+    @Column
     LocalDate date;
 
     @Column
