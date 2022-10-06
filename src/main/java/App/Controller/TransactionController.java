@@ -40,6 +40,7 @@ public class TransactionController {
     @GetMapping("")
     public String defaultResponse() {return "Response from backend.";}
 
+    @GetMapping("/transactions")
     public List<Transactions> getAllTransactions() {
         return ts.getAllTransactions();
     }
