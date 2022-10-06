@@ -26,5 +26,5 @@ public class ProductService {
 
     public void updateProduct(Product product){ pr.save(product); }
 
-    public void deleteProduct(Product product){ pr.delete(product); }
+    public void deleteProduct(int id){ pr.deleteById(id); }
 }

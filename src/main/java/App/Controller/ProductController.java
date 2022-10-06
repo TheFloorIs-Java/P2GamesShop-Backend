@@ -31,15 +31,21 @@ public class ProductController {
         productService.addProduct(p);
     }
 
-    @PutMapping("products")
-    public void updateProduct(@RequestBody Product product) {productService.updateProduct(product);}
+    @PutMapping("products/update/{id}")
+    public void updateProduct(@RequestBody Product p, @PathVariable("id") int id) {
+        Product newProduct = productService.getProduct(id);
+        if (newProduct != null) {
+            newProduct.setProduct_name(p.getProduct_name());
+            newProduct.setRelease_date(p.getRelease_date());
+            newProduct.setPrice(p.getPrice());
+            newProduct.setQuantity(p.getQuantity());
+            newProduct.setProduct_img(p.getProduct_img());
+            productService.updateProduct(newProduct);
+            }
+    }
 
-    @DeleteMapping("products")
-    public void deleteProduct(@RequestBody Product p) {productService.deleteProduct(p);}
+    @DeleteMapping("products/delete/{id}")
+    public void deleteProduct(@PathVariable("id") int id) {productService.deleteProduct(id);}
 
 
-    //test
-    @GetMapping(value = "hello")
-    public String sayHello(){return "Hello API!";}
-    //test
 }
