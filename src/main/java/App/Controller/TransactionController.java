@@ -32,8 +32,8 @@ public class TransactionController {
 
     // Get all Transactions for a specific date
     @GetMapping("/transactions/{date}")
-    public List<Transactions> getTransactionsByDate(@PathVariable LocalDate date) {
-        return ts.getTransactionsByDate(date);
+    public List<Transactions> getTransactionsByDate(@PathVariable String date) {
+        return ts.getTransactionsByDate(LocalDate.parse(date));
     }
 
     // Testing endpoints
