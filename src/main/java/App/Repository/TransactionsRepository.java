@@ -25,3 +25,5 @@ public interface TransactionsRepository extends JpaRepository<Transactions, Inte
     @Query("from Transactions where date = :date")
     public List<Transactions> getTransactionsByDate(@Param("date")LocalDate date);
 }
+//This repository automatically generates many of the queries that may need to be called by the API
+//such as "select all from table," specific queries can also be constructed here.

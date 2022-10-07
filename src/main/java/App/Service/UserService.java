@@ -24,15 +24,19 @@ public class UserService {
 
         return ur.findAll();
     }
+    //Repository call to get all users.
     public Users getUserById(int id){
         return ur.findById(id).get();
     }
+    //Repository call to get a user based on the user ID passed in by the frontend.
 
     public Users addUser(Users p){
         return ur.save(p);
     }
+    //Repository call to add a user based on the information passed in by the frontend.
 
     public void deleteUserById(int id) {
         ur.deleteById(id);
     }
+    //Repository call to delete a user based on the user ID passed in by the frontend.
 }

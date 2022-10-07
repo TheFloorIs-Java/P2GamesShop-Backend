@@ -10,7 +10,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity //SPRING ORM: registers this class to be associated with a database table
+@Entity
+//These annotations auto generate certain constructors and methods on runtime (like getters and setters)
+//as well as declaring this model as a table in the connected database.
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //automatically generate user id
@@ -25,3 +27,5 @@ public class Users {
 
     //public boolean admin;
 }
+//This is the model for Users that defines the traits that users have in the database. Each of these values is
+//connected to a column in the database.

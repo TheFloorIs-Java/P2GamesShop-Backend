@@ -9,12 +9,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
 @Aspect //an aspect is a modularization of a concern that cuts across multiple classes
-@Configuration //this is a meta annotation
+@Configuration
 public class LoggingAspect {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    //Log info BEOFRE any of the methods in the data layer are called
+    //Logs info before any of the methods in the data layer are called
     @Before("execution (* App.Repository.*.*(..))")
     public void logBefore(JoinPoint joinPoint){
 

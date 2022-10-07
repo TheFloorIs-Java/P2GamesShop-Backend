@@ -22,6 +22,7 @@ public class TransactionsService {
     public List<Transactions> getAllTransactions() {
         return tr.getAllTransactions();
     }
+    //Repository call to get all transactions.
 
     public Transactions addTransaction(Transactions t) {
         return tr.save(t);

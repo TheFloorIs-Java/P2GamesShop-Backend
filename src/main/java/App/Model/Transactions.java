@@ -14,6 +14,8 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 @Entity
+//These annotations auto generate certain constructors and methods on runtime (like getters and setters)
+//as well as declaring this model as a table in the connected database.
 public class Transactions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,3 +34,5 @@ public class Transactions {
     @Column
     String products;
 }
+//This is the model for Transactions that defines the traits that transactions have in the database. Each of these values is
+//connected to a column in the database.

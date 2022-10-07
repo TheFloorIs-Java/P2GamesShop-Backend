@@ -10,6 +10,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Entity
+//These annotations auto generate certain constructors and methods on runtime (like getters and setters)
+//as well as declaring this model as a table in the connected database.
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,3 +28,5 @@ public class Product {
     @Column
     public String product_img;
 }
+//This is the model for Products that defines the traits that products have in the database. Each of these values is
+//connected to a column in the database.
