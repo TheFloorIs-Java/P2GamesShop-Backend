@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/P2GamesShop-Backend.iml" filepath="$PROJECT_DIR$/P2GamesShop-Backend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/P2GamesShop-Backend.main.iml" filepath="$PROJECT_DIR$/.idea/modules/P2GamesShop-Backend.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/P2GamesShop-Backend.test.iml" filepath="$PROJECT_DIR$/.idea/modules/P2GamesShop-Backend.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Spring.iml" filepath="$PROJECT_DIR$/.idea/Spring.iml" />
     </modules>
   </component>
 </project>
