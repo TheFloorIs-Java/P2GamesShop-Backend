@@ -6,6 +6,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
+    /**
+     * Queries the product table for a single product based on ID
+     * @param id an integer representing the ID of a product in the database
+     * @return a single product that matches the input product ID
+     */
     @Query("from Product where id=:id")
     public Product getProductByID(@Param("id") int id);
 }

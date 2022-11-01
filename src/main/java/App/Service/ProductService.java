@@ -14,22 +14,40 @@ public class ProductService {
     public ProductService(ProductRepository pr){
         this.pr = pr;
     }
+
+    /**
+     * Calls the repository method to get all products from the database
+     * @return a list of all products
+     */
     public List<Product> getAllProducts(){
         return pr.findAll();
     }
-    //Repository call to get all products.
 
+    /**
+     * Calls the repository method to get a single product based on the input ID
+     * @param id an integer representing the ID of a product in the database
+     * @return a single product from the database
+     */
     public Product getProduct(int id){
         return pr.getProductByID(id);
     }
-    //Repository call to get a product based on the product ID passed in by the frontend.
 
+    /**
+     * Calls the repository method to add a product to the database
+     * @param g product to be added
+     */
     public void addProduct(Product g){ pr.save(g); }
-    //Repository call to add a product passed in by the frontend.
 
+    /**
+     * Calls the repository method to update a product already in the database
+     * @param product product with new information to save over the existing product
+     */
     public void updateProduct(Product product){ pr.save(product); }
-    //Repository call to update a product based on the information passed in by the frontend.
 
+    /**
+     * Calls the repository method to delete a product from the database
+     * @param id an integer representing the ID of a product in the database
+     */
     public void deleteProduct(int id){ pr.deleteById(id); }
 }
-//Repository call to delete a product based on the product ID passed in by the frontend.
+

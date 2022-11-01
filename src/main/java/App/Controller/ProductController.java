@@ -16,24 +16,39 @@ public class ProductController {
         this.productService = ps;
     }
 
+    /**
+     * Get all Products
+     * @return a list of all products in the database
+     */
     @GetMapping("products")
     public List<Product> getAllProducts(){
         return productService.getAllProducts();
     }
-    //Service call to get all products.
 
+    /**
+     * Get a Product by product ID
+     * @param id an integer representing the id of a product in the database
+     * @return a single product based on the ID input
+     */
     @GetMapping("products/{id}")
     public Product getProduct(@PathVariable("id") int id){
         return productService.getProduct(id);
     }
-    //Service call to get a specific product based on the product ID passed in by the frontend.
 
+    /**
+     * Add a Product to the database
+     * @param p product to be added
+     */
     @PostMapping("products")
     public void addProduct(@RequestBody Product p){
         productService.addProduct(p);
     }
-    //Service call to add the product passed in by the frontend to the database.
 
+    /**
+     * Update a product that already exists in the database
+     * @param p product that contains the new information to be added to the product
+     * @param id an integer representing the ID of the product to be updated
+     */
     @PutMapping("products/update/{id}")
     public void updateProduct(@RequestBody Product p, @PathVariable("id") int id) {
         Product newProduct = productService.getProduct(id);
@@ -46,9 +61,11 @@ public class ProductController {
             productService.updateProduct(newProduct);
             }
     }
-    //Code to Update a product. It first checks to see if the product ID passed in exists
-    // and if it does it will update that product with the other information passed in.
 
+    /**
+     * Delete a Product from the database
+     * @param id an integer representing the ID of the product to be deleted
+     */
     @DeleteMapping("products/delete/{id}")
     public void deleteProduct(@PathVariable("id") int id) {productService.deleteProduct(id);}
     //Service call to delete a product based on the product ID passed in by the frontend.
