@@ -27,14 +27,11 @@ public class TransactionController {
     public List<Transactions> getAllTransactionsByUserId(@PathVariable int user_id) {
         return ts.getAllTransactionsFromUserById(user_id);
     }
-    //Service call to get all transactions based on the user ID passed in by the frontend.
-
-    // Add a transaction
 
     /**
-     *
-     * @param t
-     * @return
+     * Add a transaction to the database
+     * @param t transaction to be added
+     * @return the transaction that was added if successful otherwise null
      */
     @PostMapping("/{user_id}/transactions")
     public Transactions addTransaction(@RequestBody Transactions t) {
@@ -51,7 +48,6 @@ public class TransactionController {
     public List<Transactions> getTransactionsByDate(@PathVariable String date) {
         return ts.getTransactionsByDate(LocalDate.parse(date));
     }
-    //Service call to get all transactions based on the date passed in by the frontend.
 
     // Testing endpoints
 
@@ -61,7 +57,6 @@ public class TransactionController {
      */
     @GetMapping("")
     public String defaultResponse() {return "Response from backend.";}
-    //A default endpoint to check if the API is currently running.
 
     /**
      * Gets all transactions from all users
@@ -71,7 +66,4 @@ public class TransactionController {
     public List<Transactions> getAllTransactions() {
         return ts.getAllTransactions();
     }
-    //Service call to get all transactions.
-
-
 }

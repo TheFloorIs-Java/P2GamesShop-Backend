@@ -18,27 +18,47 @@ public class TransactionsService {
         this.tr = tr;
     }
 
-    // For testing with Postman
+    /**
+     * Calls the repository method to get all transactions from the database. For testing purposes.
+     * @return a list of all transactions
+     */
     public List<Transactions> getAllTransactions() {
         return tr.getAllTransactions();
     }
-    //Repository call to get all transactions.
 
+    /**
+     * Calls the repository method to add a transaction to the database
+     * @param t transaction to be added
+     * @return the transaction that was added if successful and null if failed
+     */
     public Transactions addTransaction(Transactions t) {
         return tr.save(t);
     }
 
-    // Get a single transaction from a user
+    /**
+     * Calls the repository method to get a single transaction from the database
+     * @param user_id
+     * @param transaction_id
+     * @return a single transaction from a specified user id and transaction id
+     */
     public Transactions getTransactionFromUserById(int user_id, int transaction_id) {
         return tr.getTransactionFromUserById(user_id, transaction_id);
     }
 
-    // Get all transaction from a user
+    /**
+     * Calls the repository method to get all transactions from a specified user id from the database
+     * @param id of user
+     * @return a list of transactions with id matching input id
+     */
     public List<Transactions> getAllTransactionsFromUserById(int id) {
         return tr.getAllTransactionsByUserId(id);
     }
 
-    // Get all transactions from all users on a specific date
+    /**
+     * Calls the repository method to get all transactions on a specified date
+     * @param date FORMAT: MMDDYY
+     * @return a list of transactions with date matching input date
+     */
     public List<Transactions> getTransactionsByDate(LocalDate date) {
         return tr.getTransactionsByDate(date);
     }
