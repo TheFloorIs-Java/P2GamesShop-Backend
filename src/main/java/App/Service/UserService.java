@@ -20,23 +20,39 @@ public class UserService {
 
     }
 
+    /**
+     * Used to get all users from the database
+     * @return a list of all users from the database
+     */
     public List<Users> getAllUsers() {
 
         return ur.findAll();
     }
-    //Repository call to get all users.
+
+    /**
+     * Used to get a specific user based on their id
+     * @param id an integer that represents a user's id
+     * @return the user that has the requested id
+     */
     public Users getUserById(int id){
         return ur.findById(id).get();
     }
-    //Repository call to get a user based on the user ID passed in by the frontend.
 
+    /**
+     * Used to add a new user to the database
+     * @param p represents the new user that is to be added
+     * @return the save function that will save the new user to the database
+     */
     public Users addUser(Users p){
         return ur.save(p);
     }
-    //Repository call to add a user based on the information passed in by the frontend.
 
+    /**
+     * Used to delete a specific user based on their id
+     * @param id an integer that represents a user's id
+     */
     public void deleteUserById(int id) {
         ur.deleteById(id);
     }
-    //Repository call to delete a user based on the user ID passed in by the frontend.
+
 }

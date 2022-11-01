@@ -14,7 +14,10 @@ public class LoggingAspect {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    //Logs info before any of the methods in the data layer are called
+    /**
+     * Used to log information to a file before any of the methods in the data layer are called
+     * @param joinPoint represents the functions that are going to be executed
+     */
     @Before("execution (* App.Repository.*.*(..))")
     public void logBefore(JoinPoint joinPoint){
 

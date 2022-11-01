@@ -18,31 +18,44 @@ public class UserController {
         this.us = ps;
     }
 
-
-
+    /**
+     * Used to get all users from the database
+     * @return a list of all users currently in the database
+     */
     @GetMapping("users")
     public List<Users> getAllUsers(){
         return us.getAllUsers();
     }
-    //Service call to get all users.
 
 
+    /**
+     * Used to get a user based on their id
+     * @param id an integer that represents a user's id
+     * @return the user that has said id
+     */
     @GetMapping("/users/id/{id}")
     public Users getUserById(@PathVariable("id") int id) {
         Users user = us.getUserById(id);
         return user;
     }
-    //Service call to get a user based on the user ID passed in by the frontend.
+
+    /**
+     * Used to add a new user to the database
+     * @param p represents the user that is to be added
+     */
     @PostMapping("users")
     public void addUser(@RequestBody Users p) {
         us.addUser(p);
     }
-    //Service call to add a new user to the database with the information passed in by the frontend.
 
+    /**
+     * Used to delete a user based on their id
+     * @param id an integer that represents a user's id
+     */
     @DeleteMapping("/users/delete/{id}")
     public void deleteUserById(@PathVariable("id") int id){
         us.deleteUserById(id);
 
     }
-    //Service call to delete the user with the user ID passed in by the frontend.
+
 }
